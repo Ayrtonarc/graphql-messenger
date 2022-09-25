@@ -6,7 +6,7 @@ module.exports = {
   development: {
     username: 'postgres',
     password: 'admin',
-    database: 'Panque',
+    database: 'ChatDB',
     host: '127.0.0.1',
     dialect: 'postgres',
     use_env_variable: 'DEV_DATABASE_URL',
