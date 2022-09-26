@@ -2,17 +2,22 @@
 
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const { AuthenticationError } = require('apollo-server-express');
-
+const { AuthenticationError, UserInputError } = require('apollo-server-express');
+const { EMAIL_PATTERN } = require('../../utils/globalconstants');
 const  {User}  = require('../../database/models');
+const { Op } = require('sequelize');
 
 module.exports = {
   Mutation: {
     async register(root, args, context) {
-      const { firstname, lastname, email, password } = args;
+      let { firstname, lastname, nickname, email, password } = args;
+      email = email.trim().toLowerCase();
 
+      //let user = await User.findOne({ where: { [{ email }]  });
+      //if(user) throw UserInputError("Este email ya esta registrado");
+      if (!EMAIL_PATTERN.test(email)) throw new UserInputError("email no valido")
       console.log("argsssss",args);
-      return await User.create({firstname, lastname, email, password })
+      return await User.create({firstname, lastname, nickname, email, password })
       // .then(result => {
       //   console.log("result en register",result)
       //   return result;
