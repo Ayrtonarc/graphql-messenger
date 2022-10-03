@@ -13,7 +13,7 @@ module.exports = gql`
  }
 
  extend type Mutation {
-     register(firstname: String, lastname: String!, nickname: String!, password: String!, email: String! ): RegisterResponse
+     register(firstname: String!, lastname: String!, username: String!, password: String!, email: String! ): RegisterResponse
      login(email: String!, password: String!): LoginResponse
  }
 
@@ -21,14 +21,15 @@ module.exports = gql`
     id: Int!
     firstname: String
     lastname: String
-    nickname: String
+    username: String
     email: String!
  }
 
   type LoginResponse {
     id: Int!
-    name: String!
-    email: String!
+    firstname: String!
+    lastname: String!
+    username: String!
     token: String!
  }
 `;
