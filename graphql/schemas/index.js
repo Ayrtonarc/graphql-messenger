@@ -1,7 +1,8 @@
 // graphql/schemas/index.js
 
 const { gql } = require('apollo-server-express');
-const userType = require('./user')
+const userType = require('./user');
+const messageType = require('./message');
 
 const rootType = gql`
  type Query {
@@ -13,4 +14,8 @@ const rootType = gql`
 
 `;
 
-module.exports = [rootType, userType];
+module.exports = [
+    rootType,
+    userType,
+    messageType,
+    ];
