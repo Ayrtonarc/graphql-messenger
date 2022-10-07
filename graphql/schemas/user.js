@@ -18,7 +18,7 @@ module.exports = gql`
  }
 
  type RegisterResponse {
-    id: Int!
+    id: String!
     firstname: String
     lastname: String
     username: String
@@ -26,7 +26,7 @@ module.exports = gql`
  }
 
   type LoginResponse {
-    id: Int!
+    id: String!
     firstname: String!
     lastname: String!
     username: String!
