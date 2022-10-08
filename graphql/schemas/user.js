@@ -5,12 +5,17 @@ const { gql } = require('apollo-server-express');
 module.exports = gql`
 
  type User {
-     id: Int!
+     id: String!
      firstname: String!
      lastname: String!
+     username: String!
      email: String!
      password: String!
  }
+
+extend type Query {
+    getAllUsers : [User]
+}
 
  extend type Mutation {
      register(firstname: String!, lastname: String!, username: String!, password: String!, email: String! ): RegisterResponse

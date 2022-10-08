@@ -8,6 +8,15 @@ const  {User}  = require('../../database/models');
 const { Op } = require('sequelize');
 
 module.exports = {
+
+  Query: {
+    async getAllUsers(root, args, context){
+      let user = context;
+      if(!user) throw new AuthenticationError('Required Auth');
+      return await User.findAll();
+    }
+  },
+
   Mutation: {
     async register(root, args, context) {
       let { firstname, lastname, username, email, password } = args;

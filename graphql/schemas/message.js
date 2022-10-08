@@ -5,7 +5,7 @@ module.exports = gql`
 
 
 type MessageResponse {
-    id: Int!
+    id: String!
     emmiter: String!
     receiver: String!
     text: String!
