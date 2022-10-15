@@ -20,10 +20,10 @@ module.exports = {
       createdAt: {
         type: Sequelize.STRING
       },
-      emmiter: {
+      from: {
         type: Sequelize.STRING
       },
-      receiver: {
+      to: {
         type: Sequelize.STRING
       },
       createdAt: {

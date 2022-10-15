@@ -15,13 +15,15 @@ module.exports = (sequelize, DataTypes) => {
   }
   Message.init({
     text: DataTypes.STRING,
+    from: DataTypes.STRING,
+    to: DataTypes.STRING,
     viewed: DataTypes.STRING,
     createdAt: DataTypes.STRING,
-    emmiter: DataTypes.STRING,
-    receiver: DataTypes.STRING
+    username: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Message',
+    tableName: 'Messages'
   });
   return Message;
 };

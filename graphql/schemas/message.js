@@ -6,14 +6,14 @@ module.exports = gql`
 
 type MessageResponse {
     id: String!
-    emmiter: String!
-    receiver: String!
     text: String!
+    from: String!
+    to: String!
     createdAt: String!
 }
 
 extend type Mutation {
-    saveMessage(text: String!, receiver: String! ) : MessageResponse
+    sendMessage(text: String!, username: String! ) : MessageResponse
 }
 
 `;
