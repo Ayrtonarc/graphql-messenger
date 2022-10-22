@@ -1,19 +1,19 @@
-
 const { gql } = require('apollo-server-express');
 
 module.exports = gql`
-
+scalar Date
 
 type MessageResponse {
     id: String!
     text: String!
-    from: String!
+    from: String
     to: String!
-    createdAt: String!
+    createdAt: Date
+    updatedAt: Date
 }
 
 extend type Mutation {
-    sendMessage(text: String!, username: String! ) : MessageResponse
+    sendMessage(text: String!, to: String! ) : MessageResponse
 }
 
 `;

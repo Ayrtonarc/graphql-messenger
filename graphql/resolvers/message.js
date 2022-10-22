@@ -10,11 +10,11 @@ module.exports = {
     
     Mutation: {
         async sendMessage (root, args, context){
-            const user = context;
+        let user = context;
            if(!user) throw new AuthenticationError('Se requiere autenticacion');
             
-            const { text, username} = args;
-            const userExist = await User.findOne({where: { username: username}});
+            const { text, to} = args;
+            const userExist = await User.findOne({where: { username: to}});
 
             if(!userExist){
                 throw new UserInputError('Usuario no existe')
@@ -24,14 +24,14 @@ module.exports = {
                 throw new UserInputError('Mensaje esta vacio');
             }
 
-            const message = await Message.create({
-                
-                from: user.username
+            let newmessage = await Message.create({from: user.username, to, text
             
 
             })
+            console.log("Zahori-----------", JSON.stringify(user,null,4))
+            return newmessage;
 
-            //console.log("Zahori-----------", JSON.stringify(newMessage,null,4))
+            
             
 
 

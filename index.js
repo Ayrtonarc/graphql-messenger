@@ -17,5 +17,5 @@ process.on('unhandledRejection', (err) => {
 
 
 server.listen({ port }, () => console.log(
-  `🚀 Server ready at http://localhost:${port}`,
+  `🚀 Server ready at http://localhost:${port}/graphql`,
 ));

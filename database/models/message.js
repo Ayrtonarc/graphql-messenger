@@ -18,8 +18,12 @@ module.exports = (sequelize, DataTypes) => {
     from: DataTypes.STRING,
     to: DataTypes.STRING,
     viewed: DataTypes.STRING,
-    createdAt: DataTypes.STRING,
-    username: DataTypes.STRING
+    createdAt: {
+      type: "TIMESTAMP",
+      allowNull: false,
+      field: "createdAt",
+      defaultValue: sequelize.literal("CURRENT_TIMESTAMP"),
+    },
   }, {
     sequelize,
     modelName: 'Message',
