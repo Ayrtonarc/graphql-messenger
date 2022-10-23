@@ -25,7 +25,7 @@ module.exports = {
 
       if(user) throw new UserInputError("Este email ya esta registrado");
       if (!EMAIL_PATTERN.test(email)) throw new UserInputError("email no valido");
-      console.log("argsssss",args);
+      //console.log("argsssss",args);
       return await User.create({firstname, lastname, username, email, password })
      },
 

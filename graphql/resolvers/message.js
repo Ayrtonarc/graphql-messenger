@@ -10,7 +10,7 @@ module.exports = {
     
     Mutation: {
         async sendMessage (root, args, context){
-        let user = context;
+        let { user } = context;
            if(!user) throw new AuthenticationError('Se requiere autenticacion');
             
             const { text, to} = args;
