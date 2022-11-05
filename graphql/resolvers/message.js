@@ -4,9 +4,26 @@ const {User, Message } = require ('../../database/models');
 
 module.exports = {
 
-    // Query: {
-        
-    // },
+    Query: {
+        async getAllMessages (root, args, context){
+            let { user } = context;
+            if(!user) throw new AuthenticationError('Se requiere autenticacion');
+
+            const otherUser = await User.findOne({
+                where : { username: from }
+            })
+            if(!otherUser) throw new UserInputError('Usuario no existe');
+            
+
+
+
+            let myMessages = await Message.findAll({
+                where: { username: user.from}
+            })
+
+            return myMessages
+        }
+    },
     
     Mutation: {
         async sendMessage (root, args, context){
