@@ -1,12 +1,13 @@
 const jwt = require('jsonwebtoken')
 const { AuthenticationError, UserInputError} = require('apollo-server-express');
 const {User, Message } = require ('../../database/models');
-
+const { Op } = require('sequelize');
 module.exports = {
 
     Query: {
         async getAllMessages (root, args, context){
             let { user } = context;
+            let { from} = args;
             if(!user) throw new AuthenticationError('Se requiere autenticacion');
 
             const otherUser = await User.findOne({
@@ -14,12 +15,16 @@ module.exports = {
             })
             if(!otherUser) throw new UserInputError('Usuario no existe');
             
-
+            const usernames = [ user.username, otherUser.username ]
 
 
             let myMessages = await Message.findAll({
-                where: { username: user.from}
-            })
+                where: {
+                    from: { [Op.in]: usernames},
+                    to: { [Op.in]:  usernames}
+                },
+                order: [['createdAt', 'DESC']],
+            });
 
             return myMessages
         }
