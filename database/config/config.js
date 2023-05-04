@@ -4,32 +4,24 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    username: 'postgres',
-    password: 'admin',
+    username: 'root',
+    password: 'chat96S$.b',
     database: 'ChatDB',
     host: '127.0.0.1',
-    dialect: 'postgres',
-    use_env_variable: 'DEV_DATABASE_URL',
+    dialect: 'mariadb',
   },
   test: {
     username: 'root',
-    password: null,
+    password: "chat96S$.b",
     database: 'database_test',
     host: '127.0.0.1',
-    dialect: 'postgres',
-    host: '127.0.0.1',
-    dialect: 'postgres',
-    use_env_variable: 'TEST_DATABASE_URL',
+    dialect: 'mariadb',
   },
   production: {
     username: 'root',
-    password: null,
+    password: "chat96S$.b",
     database: 'database_production',
     host: '127.0.0.1',
-    dialect: 'postgres',
-    host: '127.0.0.1',
-    dialect: 'postgres',
-    use_env_variable: 'DATABASE_URL',
+    dialect: 'mariadb',
   },
 };
-
