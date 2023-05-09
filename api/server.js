@@ -29,12 +29,13 @@ apolloServer.start().then(async() => {
     await apolloServer.applyMiddleware({ app, path: apolloServer.graphqlPath });
 });
 
+// descomentar para local
+const server = createServer(app);
 
-
-const server = https.createServer({
-  key: fs.readFileSync(path.join("/etc/letsencrypt/live/ltmcrypto.com/privkey.pem")),
-  cert: fs.readFileSync(path.join("/etc/letsencrypt/live/ltmcrypto.com/cert.pem"))
-}, app);
+// const server = https.createServer({
+//   key: fs.readFileSync(path.join("/etc/letsencrypt/live/ltmcrypto.com/privkey.pem")),
+//   cert: fs.readFileSync(path.join("/etc/letsencrypt/live/ltmcrypto.com/cert.pem"))
+// }, app);
 
 module.exports = server;
 
