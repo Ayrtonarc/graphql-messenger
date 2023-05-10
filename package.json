@@ -11,12 +11,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "mariadb": "^2.5.3",
     "apollo-server-express": "^3.8.1",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "graphql": "^16.5.0",
     "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.20.1"

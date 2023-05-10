@@ -75,7 +75,8 @@ apolloServer.start().then(async () => {
   await apolloServer.applyMiddleware({ app, path: apolloServer.graphqlPath });
 });
 
-
+// descomentar para local
+// const server = createServer(app);
 
 const server = https.createServer({
   key: fs.readFileSync(path.join("/etc/letsencrypt/live/neeucom.com/privkey.pem")),
