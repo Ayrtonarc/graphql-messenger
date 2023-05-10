@@ -6,7 +6,7 @@ module.exports = {
   development: {
     username: 'root',
     password: 'chat96S$.b',
-    database: 'ChatDB',
+    database: 'chatdb',
     host: '127.0.0.1',
     dialect: 'mariadb',
   },
