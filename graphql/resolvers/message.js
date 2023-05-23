@@ -54,9 +54,9 @@ module.exports = {
             return newmessage;
 
             
-            
-
-
+            },
+        Subscription: {
+            newmessage()
         }
     }
 }
