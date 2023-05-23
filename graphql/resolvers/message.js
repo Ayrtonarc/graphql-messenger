@@ -2,6 +2,10 @@ const jwt = require('jsonwebtoken')
 const { AuthenticationError, UserInputError} = require('apollo-server-express');
 const {User, Message } = require ('../../database/models');
 const { Op } = require('sequelize');
+const { PubSub } = require('apollo-server');
+
+const pubsub = new PubSub()
+
 module.exports = {
 
     Query: {
@@ -56,7 +60,7 @@ module.exports = {
             
             },
         Subscription: {
-            newmessage()
+            newMessage:() => pubsub.asyncIterator(['NEW_MESSAGE'])
         }
     }
 }
