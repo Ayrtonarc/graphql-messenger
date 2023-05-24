@@ -52,15 +52,19 @@ module.exports = {
 
             let newmessage = await Message.create({from: user.username, to, text
             
-
             })
+
+            pubsub.publish('NEW_MESSAGE', {newMessage: message})
+
             console.log("Zahori-----------", JSON.stringify(user,null,4))
             return newmessage;
 
             
             },
         Subscription: {
-            newMessage:() => pubsub.asyncIterator(['NEW_MESSAGE'])
+            newMessage:{
+                subscribe: () => pubsub.asyncIterator(['NEW_MESSAGE'])
+            }
         }
     }
 }

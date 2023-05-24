@@ -19,6 +19,6 @@ extend type Mutation {
     sendMessage(text: String!, to: String! ) : MessageResponse
 }
 type Subscription{
-    newMessage: MessageResponse
+    newMessage: MessageResponse!
 }
 `;
